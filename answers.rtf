@@ -1,0 +1,141 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21440\viewh14400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Section 2: CSS\
+\
+5. What does it stand for?\
+\
+Cascading Style Sheets\
+\
+6. What is the purpose of CSS?\
+\
+describe the presentation of a document written in HTML\
+\
+7. Describe 2 ways of appling CSS rules to an HTML element.\
+\
+inline CSS, in the <head> in an externally link CSS file\
+\
+8. Create a CSS rule that causes text to appear red on a blue background for all paragraphs on the page.\
+\
+# Section 3: Classes\
+9. Why are classes considered helpful in application development?\
+\
+\
+\
+10. What 2 things does a class capture?\
+\
+variable and methods for a object. what it is and the way it behaves\
+\
+11. Create a class that represents a Car.\
+\
+class Car \{\
+	private $make, $model, $speed;\
+	public function __ constructor ($make, $model, $speed)\{\
+		$this->make = $make;\
+		$this->model = $model;\
+		$this->speed = $speed;\
+	\}\
+	public function getMake()\{\
+		return $this->make;\
+	\}\
+	public function getModel()\{\
+		return $this->model;\
+	\}\
+	public function getSpeed()\{\
+		return $this->speed;\
+	\}\
+\}\
+\
+\
+\
+12. Show how your Car class may be instantiated and have one of its methods invoked (called).\
+	\
+$myCar = new Car(\'93Mini\'94, \'93cooper\'94, 180);\
+$miniSpeed = $myCar->getSpeed();\
+\
+\
+\
+13. Create a loop that builds a 'bag' of all odd numbers between 0 and 100.\
+\
+        $bag =  array('');\
+        $i=0;\
+             while($i <= 100)\{\
+                 if($i % 2 > 0)\{\
+                     echo $i." - Odd,  ";\
+                     array_push($bag, $i);\
+                 \}     \
+                 $i++;\
+             \}\
+\
+14. Using your 'odd bag', determine the sum of these numbers.\
+\
+echo array_sum($bag);\
+\
+If the sum is greater than 2000, assign & output a result variable the message - "BIG"\
+If equal to 2000 - "MEH"\
+Otherwise - "SMALL"\
+NB - bonus points are available if you organise your code into a class with an appropriate name & method etc.\
+\
+       $total = array_sum($bag);\
+        if ($total > 2000)\{\
+            echo "BIG";\
+        \} else if ($total == 2000)\{\
+            echo "Meh";\
+        \} else \{\
+            echo "SMALL";\
+        \}\
+\
+\
+5. What is a Schema, and what 3 core things does it consist of?\
+\
+ How we describe the relationships between objects and information in a database. Tables, views, and related data assets.\
+\
+16. How does a DB Schema map to (a) classes, and (b) instances of that class (objects)?\
+\
+contains tables that can map to class, ie  Books table would be a class as well at the table in the class can map to the data in the table (eg. tile author etc.) For the methods these can be used to access the data to get and set or any other behaviours. \
+\
+17. Design a Schema that fits the following requirements:\
+\
+A car dealership requires an online showroom. \
+They currently sell 3 makes of car - Audi, BMW, and Porsche. \
+Each make has several models - Audi A3 & A4; BMW 323, 523 etc. \
+The dealership has a number of salespeople. \
+\
+18. At the end of each month, it's important for the dealership to easily discover:\
+\
+Who was the 'best' salesman?\
+What make of car was the most 'successful'?\
+What model was the most 'successful'?\
+        -> Explain how they would find this out (SQL query if possible, or just describe in words).\
+        -> Any thoughts on 'best' / 'successful'?\
+\
+Makes\
+- makeID (PK)\
+- makeName\
+\
+Models\
+- modelID (PK)\
+- ModelName \
+- MakeID (FK)\
+- numberSales\
+\
+Salespersons\
+- salespersonId (PK)\
+- name\
+- numberSales\
+\
+CarSales\
+- saleId (PK)\
+- SalespersonsID (FK)\
+- MakeID (FK)\
+- salesPrice\
+- customer\
+\
+SELECT salespersonId, name max(numberSales)  FROM Salespersons\
+\
+SELECT   modelID ModelsName max(numberSales) FROM Models \
+}
